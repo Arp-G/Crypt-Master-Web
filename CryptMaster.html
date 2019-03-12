@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta name="chrset" content="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <meta name="author" content="Arpan Ghoshal">
+  <meta name="description" content="CryptMaster - A cryptography application">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="cryptMasterStyle.css">
+
+  <script src="Driver.js"></script>
+  <script src="https://unpkg.com/egoroof-blowfish@2.1.0" crossorigin="anonymous" integrity="sha384-0H9x/+kblTVPh935mDnPd8xKFQKyQyAuJyBSmQWQ66Foe6lav6k0BZsiY5JsQ3Dm"></script>
+  <script src="AES.js"></script>
+
+  <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>
+  <script src="blowfish.js"></script>
+
+  <script src="MASC.js"></script>
+
+  <script src="PAC.js"></script>
+
+  <script src="playFair.js"></script>
+
+  <script src="hillCipher.js"></script>
+
+  <script src="railfence.js"></script>
+
+  <script src="ColumnTransposition.js"></script>
+
+  <script src="vernamCipher.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Arvo|Josefin+San|Oleo+Script" rel="stylesheet">
+
+  <title>Crypt-Master</title>
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title" style="color:green">WELCOME !</h3>
+        </div>
+        <div class="modal-body">
+          <p><b>Welcome to Crypt-master. You may choose from a variety of cryptography algorithms present and easily test them using
+          the easy to use interface provided. Also don't forget to follow the limitations of each of the algorithms for their proper functioning.<b> </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  
+
+  <header>
+    <h1>
+      <div class="draw">Crypt-Master</div>
+    </h1>
+  </header>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-4">
+          <div class="row form-group">
+            <h3>Encryption</h3>
+            <textarea  class="form-control" placeholder="Enter text to encrypt here..." style="color:blue" id="toEncrypt"></textarea>
+          </div>
+          <div class="row form-group">   
+          <h3>Cipher Text</h3>   
+          <textarea class="form-control" id="encryptedText" style="color:red" readonly></textarea>
+          </div>
+      </div>
+      <div class="col-xs-4">
+        <div class="row">
+        <div id="control" class="form-group">
+         <span class="midText"> Key: </span><input type="text" id="key" class="form-control">
+          <button id="encryptButton" onclick="encrypt_Driver()" class="btn btn-danger">Encrypt !</button>
+          <button id="resetButton" onclick="resetAll()" class="btn btn-primary">Reset !</button>
+          <button id="decryptButton" onclick="decrypt_Driver()" class="btn btn-success">Decrypt !</button>
+       
+         <span class="midText">Choose Encryption/Decryption Strategy:</span>
+         <select class="form-control" id="Strategy" onchange="load_Contraint()">
+          <option value="none" selected disabled>Select Encryption/Decryption Strategy</option>
+          <option value="AES">AES</option>
+          <option value="Blowfish">BlowFish</option>
+          <option value="MASC">Monoalphabetic Substitution Cipher</option>
+          <option value="PSC">Polyalphabetic Substitution Cipher</option>
+          <option value="PlayFair">PlayFair Cipher</option>
+          <option value="HillCipher">Hill Cipher</option>
+          <option value="RailFence">Rail Fence</option>
+          <option value="sft">Simple Column Transposition</option>
+          <option value="vernam">Vernam Cipher</option>
+        </select>
+
+        <div id="constraint">
+        </div>
+        </div>
+      </div>
+      </div> 
+      <div class="col-xs-4">
+        <div class="row form-group">
+          <h3>Decryption</h3>
+          <textarea  class="form-control" placeholder="Enter text to decrypt here..." style="color:blue" id="toDecrypt"></textarea>
+        </div>
+        <div class="row form-group">
+          <h3>Plain Text</h3>   
+          <textarea  class="form-control" id="decryptedText" style="color:green" readonly></textarea>
+        </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div id="snackbar"> Cipher text copied to clipboard !</div>
+
+    <script>
+
+      $('#myModal').modal('show');
+
+
+    $("#snackbar").hide();
+
+    function resetAll(){
+     $("#toEncrypt").val("");
+     $("#toDecrypt").val("");
+     $("#encryptedText").val("");
+     $("#decryptedText").val("");
+     $("#key").val("");
+     $("#constraint").html("");
+     $("#Strategy").val("");
+    }
+
+
+      function showSnack(){
+        $("#encryptedText").select();
+
+   
+  document.execCommand('copy'); //Copies the current selection to the clipboard.
+      $("#snackbar").fadeIn(1000,function(){
+        $("#snackbar").fadeOut(1500);
+      });
+    }
+
+  
+  </script>
+
+
+
+
+</body>
+</html>
