@@ -13,15 +13,14 @@
     padding:15px;
   }
 
-  #encryptButton,#decryptButton,#resetButton{
-    display:inline-block;
+  #encryptButton,#decryptButton,#resetButton,#learnButton{
     width:80px;
-    margin: 25px 10px;
+    display:block;
+    margin:auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
-  #encryptButton{
-      margin-left: 50px;
-    }
 
     #toEncrypt,#toDecrypt{
       border: 3px solid blue;
@@ -54,7 +53,7 @@
     }
     .draw{
        font-family: 'Josefin Sans', sans-serif;
-       font-size: 2.5vw;
+       font-size: 35px;
        animation: borderAnimation 2s linear infinite alternate;
        padding:15px;
     }
@@ -106,3 +105,15 @@
       to { background-position: -400px -400px; }
     }
 
+    #learnButton{
+
+      
+    }
+
+
+  @media (max-width: 480px) {
+  
+  #constraint{
+      font-size: 7px;
+    }
+  }

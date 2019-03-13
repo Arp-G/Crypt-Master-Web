@@ -2,57 +2,97 @@ function load_Contraint(){
 
   let choice=document.getElementById("Strategy").value;
   let constraint=document.getElementById("constraint");
+  let learnRedirect;
 
   switch(choice){
 
     case "AES":
       var c = AES.constraint();
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Advanced_Encryption_Standard')
+      }
+
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled = false;
       break;
 
     case "Blowfish":
       var c = BF.constraint();
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Blowfish_(cipher)')
+      }
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled = false;
       break;
 
     case "MASC":
       var c = Masc.constraint();
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Substitution_cipher')
+      }
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled="disabled";
       break;
 
     case "PSC":
       var c = Psc.constraint();
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Substitution_cipher#Polyalphabetic_substitution')
+      }
+      document.getElementById("learnButton").onclick=learnRedirect;   
       document.getElementById("key").disabled = false;
       break;
 
     case "PlayFair":
       var c = PlayFairCipher.constraint();
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Playfair_cipher')
+      }
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled = false;
       break;
 
     case "HillCipher":
-      var c = HillCipher.constraint();
+      var c = HillCipher.constraint();   
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Hill_cipher')
+      }  
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled = false;
       document.getElementById("key").value = "LIHH";
       break;
 
     case "RailFence":
       var c = RailFence.constraint();
+      learnRedirect=function(){    
+        window.open('https://en.wikipedia.org/wiki/Rail_fence_cipher')
+      }
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled="disabled";
       break;
 
     case "sft":
       var c = ColumnTransposition.constraint();
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Transposition_cipher')
+      }
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled="disabled";
       break;
 
     case "vernam":
-      var c = VernamCipher.constraint();
+      var c = VernamCipher.constraint();     
+      learnRedirect=function(){
+        window.open('https://nptel.ac.in/courses/117101055/cdeep%20demo%20ppt/vernam.html')
+      }
+      document.getElementById("learnButton").onclick=learnRedirect;
       document.getElementById("key").disabled = false;
       break;
 
 
   } 
+
+  
   let constraintStr="<h3 style='border: 1px dashed'>Limitations :</h3><ul>";
    for(i of c)
       constraintStr+= "<li> "+i+" </li><br>";

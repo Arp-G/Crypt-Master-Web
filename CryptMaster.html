@@ -91,8 +91,9 @@
           <button id="encryptButton" onclick="encrypt_Driver()" class="btn btn-danger">Encrypt !</button>
           <button id="resetButton" onclick="resetAll()" class="btn btn-primary">Reset !</button>
           <button id="decryptButton" onclick="decrypt_Driver()" class="btn btn-success">Decrypt !</button>
+          <button class='tn btn-warning'  id="learnButton">Learn More !</button>
        
-         <span class="midText">Choose Encryption/Decryption Strategy:</span>
+         <span class="midText">Choose Encryption Strategy:</span>
          <select class="form-control" id="Strategy" onchange="load_Contraint()">
           <option value="none" selected disabled>Select Encryption/Decryption Strategy</option>
           <option value="AES">AES</option>
@@ -141,7 +142,8 @@
      $("#decryptedText").val("");
      $("#key").val("");
      $("#constraint").html("");
-     $("#Strategy").val("");
+     $("#Strategy").val("none");
+     $("#learnButton").attr("onclick","");
     }
 
 
