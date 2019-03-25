@@ -11,34 +11,30 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="cryptMasterStyle.css">
 
-  <script src="Driver.js"></script>
-  <script src="https://unpkg.com/egoroof-blowfish@2.1.0" crossorigin="anonymous" integrity="sha384-0H9x/+kblTVPh935mDnPd8xKFQKyQyAuJyBSmQWQ66Foe6lav6k0BZsiY5JsQ3Dm"></script>
-  <script src="AES.js"></script>
+  <script src="scripts/Driver.js"></script>
+  <script src="scripts/AES.js"></script>
 
   <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>
-  <script src="blowfish.js"></script>
+  <script src="scripts/blowfish.js"></script>
 
-  <script src="MASC.js"></script>
 
-  <script src="PAC.js"></script>
+  <script src="scripts/MASC.js"></script>
 
-  <script src="playFair.js"></script>
+  <script src="scripts/PAC.js"></script>
 
-  <script src="hillCipher.js"></script>
+  <script src="scripts/playFair.js"></script>
 
-  <script src="railfence.js"></script>
+  <script src="scripts/hillCipher.js"></script>
 
-  <script src="ColumnTransposition.js"></script>
+  <script src="scripts/railfence.js"></script>
 
-  <script src="vernamCipher.js"></script>
+  <script src="scripts/ColumnTransposition.js"></script>
+
+  <script src="scripts/vernamCipher.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Arvo|Josefin+San|Oleo+Script" rel="stylesheet">
 
   <title>Crypt-Master</title>
-  <style>
-
-  </style>
-</head>
 
 <body>
 
@@ -52,8 +48,15 @@
           <h3 class="modal-title" style="color:green">WELCOME !</h3>
         </div>
         <div class="modal-body">
-          <p><b>Welcome to Crypt-master. You may choose from a variety of cryptography algorithms present and easily test them using
-          the easy to use interface provided. Also don't forget to follow the limitations of each of the algorithms for their proper functioning.<b> </p>
+          <p>
+            <b>Welcome to Crypt-master. You may choose from a variety of cryptography algorithms present and easily test them using
+          the easy to use interface provided. Also don't forget to follow the limitations of each of the algorithms for their proper functioning.<b> 
+          <p>
+            Click <a href="getDesktopApp.html" target="_blank">here</a> to get cryptmaster desktop app.
+            <br>
+            Know about me <a href="#" target="_blank">here</a>
+
+          </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -106,7 +109,7 @@
           <option value="sft">Simple Column Transposition</option>
           <option value="vernam">Vernam Cipher</option>
         </select>
-
+        <div id="constraintHeader"></div>
         <div id="constraint">
         </div>
         </div>
@@ -141,6 +144,7 @@
      $("#encryptedText").val("");
      $("#decryptedText").val("");
      $("#key").val("");
+     $("#constraintHeader").html("");
      $("#constraint").html("");
      $("#Strategy").val("none");
      $("#learnButton").attr("onclick","");

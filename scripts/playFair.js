@@ -17,6 +17,7 @@ class PlayFairCipher {
     return ["Supports encryption/decryption of a small single word containing letters (A to Z)",
             "The decrypted text will contain a trailing 'X' if the original plain text had odd number of characters",
             "Fails to maintain letter case, decrypted text is always in upper case",
+            "Only use letters (A to Z) as plain text or key",
             "The algorithm fails when the plain text has similar consecutive characters Example: Hello, hammer ,etc"];
   }
     
@@ -40,6 +41,8 @@ class PlayFairCipher {
     Encrypt_Driver(plainText,key){ 
 
    plainText=plainText.toUpperCase();
+
+   key=key.toUpperCase();
 		 
 	 let matrix=this.createPopulationMatrix(key);
 	 
@@ -49,6 +52,8 @@ class PlayFairCipher {
  }
 
     Decrypt_Driver(cipherText,key) {
+
+   key=key.toUpperCase();
 	 
 	 let matrix=this.createPopulationMatrix(key);
 	 

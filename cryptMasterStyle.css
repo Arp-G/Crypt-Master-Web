@@ -59,12 +59,11 @@
     }
 
     .row{
-
       height:100%;
     }
 
     .container{
-      background-image:url("qbkls.png");
+      background-image:url("images/texture background.png");
       animation: backgroundAnimation 20s linear infinite reverse;
       border:4px solid purple;
       border-radius: 5px;
@@ -90,7 +89,7 @@
     }
 
     body{
-      background-image:url("3--906341-Binary code - Background animation.jpg");
+      background-image:url("images/Binary code background animation.jpg");
       background-repeat: no-repeat;
       animation: backgroundAnimation 20s linear infinite reverse;
     }
@@ -105,15 +104,10 @@
       to { background-position: -400px -400px; }
     }
 
-    #learnButton{
-
-      
-    }
-
 
   @media (max-width: 480px) {
-  
-  #constraint{
-      font-size: 7px;
+
+    #constraint{
+      font-size: 8px;
     }
   }

@@ -2,6 +2,7 @@ function load_Contraint(){
 
   let choice=document.getElementById("Strategy").value;
   let constraint=document.getElementById("constraint");
+  let constraintHead=document.getElementById("constraintHeader");
   let learnRedirect;
 
   switch(choice){
@@ -10,6 +11,16 @@ function load_Contraint(){
       var c = AES.constraint();
       learnRedirect=function(){
         window.open('https://en.wikipedia.org/wiki/Advanced_Encryption_Standard')
+      }
+
+      document.getElementById("learnButton").onclick=learnRedirect;
+      document.getElementById("key").disabled = false;
+      break;
+
+    case "DES":
+      var c = DES.constraint();
+      learnRedirect=function(){
+        window.open('https://en.wikipedia.org/wiki/Data_Encryption_Standard')
       }
 
       document.getElementById("learnButton").onclick=learnRedirect;
@@ -92,12 +103,13 @@ function load_Contraint(){
 
   } 
 
-  
-  let constraintStr="<h3 style='border: 1px dashed'>Limitations :</h3><ul>";
+  let constraintHeader="<h3 style='border: 1px dashed'>Limitations :</h3>";
+  let constraintStr="<ul>";
    for(i of c)
-      constraintStr+= "<li> "+i+" </li><br>";
+      constraintStr+= "<li> "+i+" </li>";
   constraintStr+="</ul>";
 
+  constraintHead.innerHTML=constraintHeader;
   constraint.innerHTML=constraintStr;
       
 
@@ -124,6 +136,7 @@ function encrypt_Driver(){
       document.getElementById("encryptedText").value=cipherText;
       showSnack();
       break;
+
 
     case "Blowfish":
       let bf=new BF();
